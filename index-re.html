@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartu Lahan — Nancy Meininta Brahmana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  /* Design system: Notion (popular-web-designs), gold-tinted variant
+     Warm neutrals, near-black text, whisper borders, single gold accent */
+  :root{
+    --bg:#fdfcfa;
+    --bg-warm:#f7f3ea;
+    --text:rgba(0,0,0,0.95);
+    --gray-500:#615d59;
+    --gray-300:#a39e98;
+    --whisper:1px solid rgba(120,90,20,0.16);
+    --gold:#b5892c;
+    --name:#7a5a16;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#efece6;font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{display:grid;place-items:center;min-height:100vh;padding:24px}
+
+  /* ================= CARD : 150 x 100 mm ================= */
+  .card{
+    width:150mm;height:100mm;position:relative;overflow:hidden;
+    background:var(--bg);color:var(--text);
+    border:var(--whisper);border-radius:4mm;
+    box-shadow:
+      rgba(0,0,0,0.04) 0px 4px 18px,
+      rgba(0,0,0,0.027) 0px 2.025px 7.85px,
+      rgba(0,0,0,0.02) 0px 0.8px 2.93px,
+      rgba(0,0,0,0.01) 0px 0.175px 1.04px;
+    display:grid;grid-template-columns:1fr auto;align-items:center;
+    padding:0 11mm;gap:10mm;
+  }
+  /* warm-white side panel behind QR — gentle rhythm, Notion-style */
+  .card::after{content:"";position:absolute;top:0;right:0;bottom:0;width:56mm;
+    background:var(--bg-warm);border-left:var(--whisper)}
+
+  .left{position:relative;z-index:1;max-width:82mm}
+  .name{font-size:11.4mm;font-weight:700;line-height:1.02;letter-spacing:-0.5mm;
+    color:var(--name);font-feature-settings:"lnum" 1,"locl" 1}
+
+  .right{position:relative;z-index:1;display:flex;flex-direction:column;
+    align-items:center;justify-content:center}
+  .qrwrap{background:var(--bg);padding:3mm;border:var(--whisper);border-radius:3mm;
+    box-shadow:rgba(0,0,0,0.04) 0px 4px 18px,rgba(0,0,0,0.02) 0px 0.8px 2.93px}
+  .qrwrap img{width:42mm;height:42mm;display:block;image-rendering:pixelated}
+
+  @media print{
+    body{padding:0;background:none;min-height:0}
+    .card{border-radius:0;box-shadow:none;border:none}
+    @page{size:150mm 100mm;margin:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="left">
+    <div>
+      <h1 class="name">Nancy Meininta<br>Brahmana</h1>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="qrwrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=440x440&margin=0&data=https%3A%2F%2Frichardshiawase.github.io%2Fbiuda%2Fdetail.html" alt="QR ke halaman detail lahan Nancy Meininta Brahmana">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
