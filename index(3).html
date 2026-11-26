@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kartu Lahan — Nancy Meininta Brahmana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0e1420;          /* near-black navy */
+    --ink-2:#16202f;
+    --paper:#f4f1ea;        /* warm bone */
+    --emerald:#12b981;      /* signal green */
+    --emerald-deep:#0b7a56;
+    --gold:#e8b04b;
+    --line:rgba(244,241,234,.16);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#dcd8cf;font-family:Inter,system-ui,sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{display:grid;place-items:center;min-height:100vh;padding:24px}
+
+  /* ================= CARD : 150 x 100 mm ================= */
+  .card{
+    width:150mm;height:100mm;position:relative;overflow:hidden;
+    background:linear-gradient(135deg,var(--ink) 0%,var(--ink-2) 55%,#0c2b22 100%);
+    color:var(--paper);border-radius:6mm;
+    box-shadow:0 30px 60px -20px rgba(14,20,32,.55);
+    display:grid;grid-template-columns:1fr 52mm;
+  }
+  /* ambient glow + grid texture */
+  .card::before{content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(60mm 40mm at 88% 110%, rgba(18,185,129,.28), transparent 70%),
+      radial-gradient(45mm 35mm at -5% -10%, rgba(232,176,75,.14), transparent 70%),
+      repeating-linear-gradient(0deg, transparent 0 4.9mm, rgba(244,241,234,.035) 4.9mm 5mm),
+      repeating-linear-gradient(90deg, transparent 0 4.9mm, rgba(244,241,234,.035) 4.9mm 5mm);
+  }
+  .card::after{content:"";position:absolute;left:97mm;top:0;bottom:0;width:.4mm;
+    background:linear-gradient(180deg,transparent,var(--gold),transparent)}
+
+  .left{position:relative;padding:9mm 8mm 7mm;display:flex;flex-direction:column;justify-content:space-between}
+  .topbar{display:flex;align-items:center;gap:3mm}
+  .badge{display:inline-flex;align-items:center;gap:2mm;font:600 3.1mm/1 Sora;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+  .badge i{width:2.2mm;height:2.2mm;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 1.4mm rgba(18,185,129,.2)}
+  .loc{margin-left:auto;font:500 3mm/1 Inter;color:rgba(244,241,234,.6)}
+
+  .name{font:800 9.2mm/1.02 Sora;letter-spacing:-.02em;margin-top:5mm}
+  .name em{font-style:normal;color:var(--emerald)}
+  .role{margin-top:2.6mm;font:500 3.4mm/1.35 Inter;color:rgba(244,241,234,.75)}
+  .role b{color:var(--paper);font-weight:600}
+
+  .contact{display:flex;align-items:center;gap:3mm;margin-top:6mm}
+  .chip{display:inline-flex;align-items:center;gap:2.4mm;background:rgba(18,185,129,.14);
+    border:0.4mm solid rgba(18,185,129,.45);border-radius:10mm;padding:2.6mm 4mm;
+    font:600 4.4mm/1 Sora;letter-spacing:.02em;color:#eafff6}
+  .chip svg{width:4.2mm;height:4.2mm;flex:none}
+
+  .thumbs{display:flex;gap:2.6mm;margin-top:5.5mm}
+  .thumb{flex:1;height:20mm;border-radius:2.4mm;overflow:hidden;position:relative;border:.3mm solid var(--line)}
+  .thumb svg,.thumb img{width:100%;height:100%;display:block;object-fit:cover}
+  .thumb span{position:absolute;left:0;right:0;bottom:0;padding:1.1mm 1.6mm;
+    font:600 2.4mm/1 Inter;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--paper);background:linear-gradient(0deg,rgba(8,12,20,.85),transparent)}
+
+  .right{position:relative;padding:9mm 8mm 7mm 6mm;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center}
+  .qrwrap{position:relative;background:var(--paper);padding:3mm;border-radius:3mm;box-shadow:0 4mm 10mm -4mm rgba(0,0,0,.5)}
+  .qrwrap::before{content:"";position:absolute;inset:-1.6mm;border:.5mm dashed rgba(232,176,75,.8);border-radius:4mm}
+  .qrwrap img{width:34mm;height:34mm;display:block;image-rendering:pixelated}
+  .cta{font:700 3.4mm/1.3 Sora;color:var(--paper)}
+  .cta small{display:block;margin-top:1.6mm;font:500 2.6mm/1.4 Inter;color:rgba(244,241,234,.6)}
+  .foot{font:500 2.5mm/1.4 Inter;color:rgba(244,241,234,.45)}
+  .foot b{color:var(--gold)}
+
+  @media print{
+    body{padding:0;background:none;min-height:0}
+    .card{border-radius:0;box-shadow:none}
+    @page{size:150mm 100mm;margin:0}
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="left">
+    <div>
+      <div class="topbar">
+        <span class="badge"><i></i> Tanah Dijual</span>
+        <span class="loc">Legalitas Aman · SHM</span>
+      </div>
+      <h1 class="name">Nancy Meininta<br>Brah<em>mana</em></h1>
+      <p class="role">Pemilik lahan — <b>foto lahan, fotokopi sertifikat &amp; lokasi</b> tersedia, pindai QR di samping.</p>
+    </div>
+
+    <div class="contact">
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#12b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        +62 813-7709-3300
+      </span>
+    </div>
+
+    <div class="thumbs" aria-label="contoh visual">
+      <div class="thumb">
+        <img src="https://images.unsplash.com/photo-1590354739507-917835f7f4fd?fm=jpg&q=60&w=500&auto=format&fit=crop" alt="Contoh foto lahan (udara)">
+        <span>Foto Lahan</span>
+      </div>
+      <div class="thumb">
+        <img src="https://images.pexels.com/photos/6801145/pexels-photo-6801145.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Contoh fotokopi sertifikat">
+        <span>Fotokopi Sertifikat</span>
+      </div>
+      <div class="thumb">
+        <svg viewBox="0 0 120 66" preserveAspectRatio="xMidYMid slice">
+          <rect width="120" height="66" fill="#eef1e9"/>
+          <g stroke="#ffffff" stroke-width="6"><path d="M-5 18 H125"/><path d="M38 -5 V71"/></g>
+          <g stroke="#dfe5d6" stroke-width="2.5"><path d="M-5 44 H125"/><path d="M84 -5 V71"/><path d="M-5 58 H125"/></g>
+          <g fill="#d8ddcd"><rect x="4" y="24" width="26" height="15" rx="2"/><rect x="46" y="4" width="30" height="10" rx="2"/><rect x="92" y="24" width="22" height="15" rx="2"/><rect x="46" y="50" width="30" height="14" rx="2"/></g>
+          <path d="M78 42 q0 -12 -0 -12" stroke="none"/>
+          <path d="M78 22 c-7 0 -11 5 -11 11 0 8 11 18 11 18 s11 -10 11 -18 c0 -6 -4 -11 -11 -11z" fill="#e0453a"/>
+          <circle cx="78" cy="33" r="4" fill="#fff"/>
+        </svg>
+        <span>Lokasi · Maps</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="qrwrap">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=400x400&margin=0&data=https%3A%2F%2Frichardshiawase.github.io%2Fbiuda%2Fdetail.html" alt="QR ke halaman detail lahan Nancy Meininta Brahmana">
+    </div>
+    <div class="cta">PINDAI &amp; LIHAT<small>Scan → no. HP, foto lahan, sertifikat &amp; lokasi Maps</small></div>
+    <div class="foot">Harga &amp; nego <b>langsung ke pemilik</b> · 15 × 10 cm</div>
+  </div>
+</div>
+
+</body>
+</html>
